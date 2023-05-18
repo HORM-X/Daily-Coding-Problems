@@ -19,3 +19,6 @@ function add(target) {
 }
 
 add(17);
+
+/* Time complexity: 0(n)^2 - We have two for loops nested */
+/* The space complexity is O(1) since the algorithm only uses a constant amount of extra space.*/
