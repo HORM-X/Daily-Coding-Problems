@@ -4,17 +4,15 @@
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
-    if (s.length != t.length) {
-        return false
-    }
+    if (s.length != t.length) return false
 
     let map = {}
 
-    for (let c of s) {
+    for (c of s) {
         map[c] = (map[c] || 0) + 1
     }
 
-    for (let c of t) {
+    for (c of t) {
         if (!map[c] || map[c] == 0) return false
         map[c]--
     }
