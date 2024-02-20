@@ -4,15 +4,19 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    let map = {}
     if(s.length != t.length) return false
+    
+    let countS = {}
+    let countT = {}
 
-    for (let c of s){
-        map[c] = (map[c] || 0) + 1 
+    for (let i= 0; i < s.length; i++){
+        countS[s[i]] = (countS[s[i]] || 0) + 1
+        countT[t[i]] = (countT[t[i]] || 0) + 1
     }
-    for (let c of t){
-        if(!map[c] || map[c] === 0 )  return false
-        map[c]--
+    for(let c in countS){
+        if(countS[c] !== (countT[c] || 0)){
+            return false
+            }
     }
     return true
 };
