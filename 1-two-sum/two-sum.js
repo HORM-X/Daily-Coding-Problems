@@ -3,14 +3,14 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-    let hmap = new Map()
-    for(let i=0; i < nums.length; i++){
-        let num1 = nums[i]
-        let num2 = target - num1
-        if(hmap.has(num2)){
-            return [i, hmap.get(num2)]
+var twoSum = function (nums, target) {
+    map = new Map()
+    for (let i = 0; i < nums.length; i++) {
+        let n1 = nums[i]
+        let n2 = target - n1
+        if (map.has(n2)) {
+            return [i, map.get(n2)]
         }
-        hmap.set(num1, i)
-    } 
+        map.set(n1, i)
+    }
 };
