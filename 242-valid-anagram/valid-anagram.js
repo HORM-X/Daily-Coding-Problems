@@ -3,20 +3,17 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
+var isAnagram = function (s, t) {
     if(s.length != t.length) return false
-    
-    let countS = {}
-    let countT = {}
-
-    for (let i= 0; i < s.length; i++){
-        countS[s[i]] = (countS[s[i]] || 0) + 1
-        countT[t[i]] = (countT[t[i]] || 0) + 1
+    let hmap = {}
+    for (let n of s) {
+        hmap[n] = (hmap[n] || 0) + 1
     }
-    for(let c in countS){
-        if(countS[c] !== (countT[c] || 0)){
+    for (let n of t) {
+        if (!hmap[n] || hmap[n] === 0) {
             return false
-            }
+        }
+        hmap[n]--
     }
     return true
 };
