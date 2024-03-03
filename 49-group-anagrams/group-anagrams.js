@@ -8,9 +8,9 @@ var groupAnagrams = function(strs) {
         let key = n.split('').sort().join('')
         if(!obj[key]){
             obj[key] = [n]
-        }else{
+        } else{
             obj[key].push(n)
         }
     }
-    return (Object.values(obj))
+    return Object.values(obj)
 };
