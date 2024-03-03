@@ -3,10 +3,15 @@
  * @return {string[][]}
  */
 var groupAnagrams = function (strs) {
-    let hmap = {}
-    for (let str of strs) {
-        let sortKey = str.split('').sort().join('');
-            (!hmap[sortKey]) ? hmap[sortKey] = [str] : hmap[sortKey].push(str);
+    obj = {}
+    for (let n of strs) {
+        let key = n.split('').sort().join('')
+        if (!obj[key]) {
+            obj[key] = [n]
+        } else{
+            obj[key].push(n)
+        }
     }
-    return Object.values(hmap);
+    console.log("obj", obj)
+    return(Object.values(obj))
 };
