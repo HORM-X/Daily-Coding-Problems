@@ -2,13 +2,13 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
+var groupAnagrams = function (strs) {
     let obj = {}
-    for(let n of strs){
+    for (let n of strs) {
         let key = n.split('').sort().join('')
-        if(!obj[key]){
+        if (!obj[key]) {
             obj[key] = [n]
-        } else{
+        } else {
             obj[key].push(n)
         }
     }
