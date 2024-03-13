@@ -3,23 +3,14 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-    let hmap = {}
-    for(let n of strs){
-        let arr = new Array(26).fill(0)
-        for(let c of n){
-            arr[c.charCodeAt(0) - 'a'.charCodeAt(0)]++
+    let hmap = new Map()
+    for(let i = 0; i < strs.length; i++){
+        sWord = strs[i].split('').sort().join('')
+        if(hmap.has(sWord)){
+            hmap.get(sWord).push(strs[i])
+        } else {
+            hmap.set(sWord, [strs[i]])
         }
-
-        let key = ''
-        for(let i = 0; i < arr.length; i++){
-            key += '#' + arr[i]
-        }
-
-        let arr2 = []
-        if(hmap[key]) arr2 = hmap[key]
-        arr2.push(n)
-        hmap[key] = arr2
-
     }
-    return Object.values(hmap)
+    return [...hmap.values()]
 };
