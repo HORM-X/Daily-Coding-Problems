@@ -4,9 +4,12 @@
  * @return {number[]}
  */
 var topKFrequent = function(nums, k) {
-    let hmap = new Map()
-    for (let n of nums){
-        hmap[n] = (hmap[n] || 0) + 1
+    let map = new Map()
+    for(let n of nums){
+        if(!map[n]){
+            map[n] = 0
+        }
+        map[n]++
     }
-    return Object.keys(hmap).sort((a,b) => hmap[b] - hmap[a]).slice(0,k)
+    return Object.keys(map).sort((a,b) => (map[b] - map[a])).slice(0,k)
 };
