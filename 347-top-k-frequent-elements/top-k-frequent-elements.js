@@ -5,8 +5,8 @@
  */
 var topKFrequent = function(nums, k) {
     let map = {}
-    for(let n of nums){
+    for (let n of nums){
         map[n] = (map[n] || 0) + 1
     }
-    return Object.keys(map).sort((a,b) => (map[b] - map[a])).slice(0,k)
+    return Object.keys(map).sort((a,b) => map[b] - map[a]).slice(0,k)
 };
